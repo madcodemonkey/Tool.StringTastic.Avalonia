@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Avalonia.StringTastic.ViewModels"
+             x:Class="Avalonia.StringTastic.Views.GenerateGuidView"
+             x:DataType="vm:GenerateGuidViewModel">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Top Toolbar -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+            <Button MinHeight="25" Margin="5" MinWidth="60"
+                    Command="{Binding ClearCommand}" ToolTip.Tip="Clear all text">
+                Clear
+            </Button>
+            <Button MinHeight="25" Margin="5" MinWidth="110"
+                    Command="{Binding GenerateCommand}" ToolTip.Tip="Generate new GUIDs">
+                Generate GUIDs
+            </Button>
+        </StackPanel>
+
+        <!-- Output TextBox -->
+        <TextBox Grid.Row="1"
+                 x:Name="OutputTextBox"
+                 Text="{Binding OutputText, Mode=TwoWay}"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap"
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Stretch"
+                 Margin="5"
+                 ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto" />
+    </Grid>
+</UserControl>

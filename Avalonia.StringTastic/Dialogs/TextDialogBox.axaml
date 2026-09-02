@@ -1,0 +1,50 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Avalonia.StringTastic.Dialogs.TextDialogBox"
+        Title="TextDialogBox"
+        Width="476" Height="436"
+        WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource WindowBackgroundBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label x:Name="ItemCountLabel"
+               Foreground="{DynamicResource WindowForegroundBrush}" />
+
+        <TextBox Grid.Row="1"
+                 x:Name="ContentTextBox"
+                 AcceptsReturn="True"
+                 IsReadOnly="True"
+                 TextWrapping="Wrap"
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Stretch"
+                 Margin="5"
+                 ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto" />
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="5">
+            <Button x:Name="SaveButton"
+                    Margin="5"
+                    MinHeight="25"
+                    MinWidth="75"
+                    Click="SaveButton_Click">
+                Save
+            </Button>
+            <Button x:Name="CloseButton"
+                    Margin="5"
+                    MinHeight="25"
+                    MinWidth="75"
+                    Click="CloseButton_Click">
+                Close
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

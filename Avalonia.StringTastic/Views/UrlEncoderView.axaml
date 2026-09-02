@@ -1,0 +1,68 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Avalonia.StringTastic.ViewModels"
+             x:Class="Avalonia.StringTastic.Views.UrlEncoderView"
+             x:DataType="vm:UrlEncoderViewModel">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Top Toolbar -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+            <Button MinHeight="25" Margin="5" MinWidth="80"
+                    Command="{Binding ClearInputCommand}" ToolTip.Tip="Clear input text">
+                Clear Input
+            </Button>
+            <Button MinHeight="25" Margin="5" MinWidth="80"
+                    Command="{Binding TrimInputCommand}" ToolTip.Tip="Trim whitespace from each line">
+                Trim
+            </Button>
+        </StackPanel>
+
+        <!-- Input TextBox -->
+        <TextBox Grid.Row="1"
+                 x:Name="InputTextBox"
+                 Text="{Binding InputText, Mode=TwoWay}"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap"
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Stretch"
+                 Margin="5"
+                 ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto" />
+
+        <!-- Middle Toolbar with Encode/Decode Buttons -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+            <Button MinHeight="25" Margin="5" MinWidth="80"
+                    Command="{Binding EncodeCommand}" ToolTip.Tip="URL Encode the text">
+                Encode
+            </Button>
+            <Button MinHeight="25" Margin="5" MinWidth="80"
+                    Command="{Binding DecodeCommand}" ToolTip.Tip="URL Decode the text">
+                Decode
+            </Button>
+            <Button MinHeight="25" Margin="5" MinWidth="80"
+                    Command="{Binding ClearOutputCommand}" ToolTip.Tip="Clear output text">
+                Clear Output
+            </Button>
+        </StackPanel>
+
+        <!-- Output TextBox -->
+        <TextBox Grid.Row="3"
+                 x:Name="OutputTextBox"
+                 Text="{Binding OutputText, Mode=OneWay}"
+                 IsReadOnly="True"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap"
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Stretch"
+                 Margin="5"
+                 ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto" />
+    </Grid>
+</UserControl>

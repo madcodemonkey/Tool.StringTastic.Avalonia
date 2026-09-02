@@ -1,0 +1,133 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Avalonia.StringTastic.ViewModels"
+        xmlns:models="using:Avalonia.StringTastic.Models"
+        xmlns:converters="using:Avalonia.StringTastic.Converters"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="650"
+        x:Class="Avalonia.StringTastic.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="StringTastic"
+        Width="900" Height="650"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource WindowBackgroundBrush}"
+        Foreground="{DynamicResource WindowForegroundBrush}">
+
+    <Window.Resources>
+        <converters:ToolIconConverter x:Key="ToolIconConverter" />
+    </Window.Resources>
+
+    <DockPanel>
+        <!-- Menu Bar -->
+        <Menu DockPanel.Dock="Top"
+              x:Name="MainMenu"
+              Background="{DynamicResource MenuBackgroundBrush}"
+              Foreground="{DynamicResource MenuForegroundBrush}">
+            <MenuItem Header="_File">
+                <MenuItem Header="E_xit"
+                          x:Name="MenuItemExit"
+                          Click="Exit_Click">
+                    <MenuItem.Icon>
+                        <ContentControl ContentTemplate="{DynamicResource IconExit}" Width="16" Height="16" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="_Theme">
+                    <MenuItem Header="_Light"  x:Name="MenuItemLightTheme"  ToggleType="CheckBox" Click="ThemeLight_Click" />
+                    <MenuItem Header="_Dark"   x:Name="MenuItemDarkTheme"   ToggleType="CheckBox" Click="ThemeDark_Click" />
+                    <MenuItem Header="_Azure"  x:Name="MenuItemAzureTheme"  ToggleType="CheckBox" Click="ThemeAzure_Click" />
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <!-- Main content area -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180" MinWidth="120" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Left panel: search + tool list -->
+            <Border Grid.Column="0"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    BorderThickness="0,0,1,0"
+                    Padding="10"
+                    Background="{DynamicResource PanelBackgroundBrush}">
+                <DockPanel>
+                    <!-- Search TextBox -->
+                    <TextBox x:Name="SearchTextBox"
+                             DockPanel.Dock="Top"
+                             PlaceholderText="Search tools..."
+                             Padding="5"
+                             Margin="0,0,0,10"
+                             Text="{Binding SearchText, Mode=TwoWay}"
+                             Background="{DynamicResource TextBoxBackgroundBrush}"
+                             Foreground="{DynamicResource TextBoxForegroundBrush}"
+                             BorderBrush="{DynamicResource TextBoxBorderBrush}" />
+
+                    <!-- Tools ListBox -->
+                    <ListBox x:Name="ToolsListBox"
+                             BorderThickness="0"
+                             ItemsSource="{Binding FilteredTools}"
+                             DoubleTapped="ToolsListBox_DoubleTapped"
+                             SelectionChanged="ToolsListBox_SelectionChanged"
+                             Background="{DynamicResource ListBoxBackgroundBrush}"
+                             Foreground="{DynamicResource ListBoxForegroundBrush}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate x:DataType="models:ToolItem">
+                                <StackPanel Orientation="Horizontal" Margin="0,5">
+                                    <TextBlock Text="{Binding Type, Converter={StaticResource ToolIconConverter}}"
+                                               FontSize="14"
+                                               VerticalAlignment="Center"
+                                               Margin="0,0,6,0" />
+                                    <TextBlock Text="{Binding DisplayName}"
+                                               VerticalAlignment="Center" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </DockPanel>
+            </Border>
+
+            <!-- Grid splitter -->
+            <GridSplitter Grid.Column="1"
+                          Width="5"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          Background="{DynamicResource SplitterBrush}" />
+
+            <!-- Tab area -->
+            <TabControl x:Name="MainTabControl"
+                        Grid.Column="2"
+                        ItemsSource="{Binding Tabs}"
+                        SelectedItem="{Binding SelectedTab, Mode=TwoWay}"
+                        Background="{DynamicResource TabControlBackgroundBrush}">
+                <TabControl.ItemTemplate>
+                    <DataTemplate x:DataType="vm:TabData">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Header}"
+                                       VerticalAlignment="Center"
+                                       FontSize="14"
+                                       Margin="0,0,5,0" />
+                            <Button Content="&#x2715;"
+                                    x:Name="TabCloseButton"
+                                    Classes="TabCloseButton"
+                                    Click="CloseTabButton_Click"
+                                    Tag="{Binding}"
+                                    FontSize="11"
+                                    VerticalAlignment="Center" />
+                        </StackPanel>
+                    </DataTemplate>
+                </TabControl.ItemTemplate>
+                <TabControl.ContentTemplate>
+                    <DataTemplate x:DataType="vm:TabData">
+                        <ContentControl Content="{Binding Content}" />
+                    </DataTemplate>
+                </TabControl.ContentTemplate>
+            </TabControl>
+        </Grid>
+    </DockPanel>
+</Window>

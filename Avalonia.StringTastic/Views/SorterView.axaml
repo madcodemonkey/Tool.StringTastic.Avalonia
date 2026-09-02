@@ -1,0 +1,54 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Avalonia.StringTastic.ViewModels"
+             x:Class="Avalonia.StringTastic.Views.SorterView"
+             x:DataType="vm:SorterViewModel">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Top Toolbar -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+            <Button MinHeight="25" Margin="5" MinWidth="60"
+                    Command="{Binding ClearCommand}"
+                    ToolTip.Tip="Clear all text">
+                Clear
+            </Button>
+            <Button MinHeight="25" Margin="5" MinWidth="110"
+                    Command="{Binding SortAscendingCommand}"
+                    ToolTip.Tip="Sort lines in ascending order">
+                Sort Ascending
+            </Button>
+            <Button MinHeight="25" Margin="5" MinWidth="110"
+                    Command="{Binding SortDescendingCommand}"
+                    ToolTip.Tip="Sort lines in descending order">
+                Sort Descending
+            </Button>
+            <Button MinHeight="25" Margin="5" MinWidth="80"
+                    Command="{Binding UniqueCommand}"
+                    ToolTip.Tip="Remove duplicate lines">
+                Unique
+            </Button>
+            <Button MinHeight="25" Margin="5" MinWidth="80"
+                    Command="{Binding TrimCommand}"
+                    ToolTip.Tip="Trim whitespace from each line">
+                Trim
+            </Button>
+        </StackPanel>
+
+        <!-- TextBox -->
+        <TextBox Grid.Row="1"
+                 x:Name="InputTextBox"
+                 Text="{Binding InputText, Mode=TwoWay}"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap"
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Stretch"
+                 Margin="5"
+                 ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto" />
+    </Grid>
+</UserControl>

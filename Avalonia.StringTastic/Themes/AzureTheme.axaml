@@ -1,0 +1,76 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Azure Theme - Professional blue theme inspired by Microsoft Azure -->
+
+    <!-- Brushes -->
+    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FFF5F9FC" />
+    <SolidColorBrush x:Key="WindowForegroundBrush" Color="#FF1A1A1A" />
+
+    <SolidColorBrush x:Key="ControlBackgroundBrush" Color="#FFEBF3F9" />
+    <SolidColorBrush x:Key="ControlForegroundBrush" Color="#FF1A1A1A" />
+    <SolidColorBrush x:Key="ControlBorderBrush" Color="#FFC7E0F4" />
+
+    <SolidColorBrush x:Key="BorderBrush" Color="#FFC7E0F4" />
+    <SolidColorBrush x:Key="SplitterBrush" Color="#FFA6D1F0" />
+
+    <SolidColorBrush x:Key="PanelBackgroundBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="PanelBorderBrush" Color="#FFC7E0F4" />
+
+    <SolidColorBrush x:Key="TextBoxBackgroundBrush" Color="#FFE7F3FC" />
+    <SolidColorBrush x:Key="TextBoxForegroundBrush" Color="#FF1A1A1A" />
+    <SolidColorBrush x:Key="TextBoxPlaceholderBrush" Color="#FF6B8DA3" />
+    <SolidColorBrush x:Key="TextBoxBorderBrush" Color="#FFA6D1F0" />
+    <SolidColorBrush x:Key="TextBoxFocusBorderBrush" Color="#FF0078D4" />
+
+    <SolidColorBrush x:Key="ListBoxBackgroundBrush" Color="#FFE7F3FC" />
+    <SolidColorBrush x:Key="ListBoxForegroundBrush" Color="#FF1A1A1A" />
+    <SolidColorBrush x:Key="ListBoxBorderBrush" Color="#FFC7E0F4" />
+    <SolidColorBrush x:Key="ListBoxItemHoverBrush" Color="#FFE6F2FA" />
+    <SolidColorBrush x:Key="ListBoxItemSelectedBrush" Color="#FFD1E7F5" />
+
+    <SolidColorBrush x:Key="TabControlBackgroundBrush" Color="#FFF5F9FC" />
+    <SolidColorBrush x:Key="TabItemBackgroundBrush" Color="#FFEBF3F9" />
+    <SolidColorBrush x:Key="TabItemForegroundBrush" Color="#FF1A1A1A" />
+    <SolidColorBrush x:Key="TabItemBorderBrush" Color="#FFC7E0F4" />
+    <SolidColorBrush x:Key="TabItemHoverBackgroundBrush" Color="#FFDEEEF8" />
+    <SolidColorBrush x:Key="TabItemSelectedBackgroundBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="TabItemSelectedForegroundBrush" Color="#FF0078D4" />
+
+    <SolidColorBrush x:Key="HoverForegroundBrush" Color="#FF005A9E" />
+
+    <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="#FFE1EDF7" /> 
+    <SolidColorBrush x:Key="ButtonForegroundBrush" Color="#FF0078D4" />
+    <SolidColorBrush x:Key="ButtonBorderBrush" Color="#FFA6D1F0" />
+    <SolidColorBrush x:Key="ButtonHoverBackgroundBrush" Color="#FFD1E7F5" />
+    <SolidColorBrush x:Key="ButtonHoverBorderBrush" Color="#FF0078D4" />
+    <SolidColorBrush x:Key="ButtonPressedBackgroundBrush" Color="#FFBDDDF2" />
+    <SolidColorBrush x:Key="ButtonPressedBorderBrush" Color="#FF005A9E" />
+    <SolidColorBrush x:Key="ButtonDisabledBackgroundBrush" Color="#FFF0F4F7" />
+    <SolidColorBrush x:Key="ButtonDisabledBorderBrush" Color="#FFD9E7F0" />
+    <SolidColorBrush x:Key="ButtonDisabledForegroundBrush" Color="#FF9CB8CC" />
+
+    <SolidColorBrush x:Key="TabCloseButtonStrokeBrush" Color="#FF6B8DA3" />
+    <SolidColorBrush x:Key="TabCloseButtonHoverBackgroundBrush" Color="#FFD1E7F5" />
+    <SolidColorBrush x:Key="TabCloseButtonHoverStrokeBrush" Color="#FF0078D4" />
+    <SolidColorBrush x:Key="TabCloseButtonPressedBackgroundBrush" Color="#FFBDDDF2" />
+    <SolidColorBrush x:Key="TabCloseButtonDisabledStrokeBrush" Color="#FFBFD9E8" />
+
+    <SolidColorBrush x:Key="MenuBackgroundBrush" Color="#FFEBF3F9" />
+    <SolidColorBrush x:Key="MenuForegroundBrush" Color="#FF1A1A1A" />
+    <SolidColorBrush x:Key="MenuBorderBrush" Color="#FFC7E0F4" />
+    <SolidColorBrush x:Key="MenuItemHoverBackgroundBrush" Color="#FFE6F2FA" />
+    <SolidColorBrush x:Key="MenuItemPressedBackgroundBrush" Color="#FFD1E7F5" />
+    <SolidColorBrush x:Key="MenuSeparatorBrush" Color="#FFC7E0F4" />
+
+    <SolidColorBrush x:Key="ContextMenuBackgroundBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="ContextMenuForegroundBrush" Color="#FF1A1A1A" />
+    <SolidColorBrush x:Key="ContextMenuBorderBrush" Color="#FFC7E0F4" />
+
+    <SolidColorBrush x:Key="AccentBrush" Color="#FF0078D4" />
+    <SolidColorBrush x:Key="AccentHoverBrush" Color="#FF1890E8" />
+    <SolidColorBrush x:Key="AccentPressedBrush" Color="#FF005A9E" />
+
+    <SolidColorBrush x:Key="IconBrush" Color="#FF0078D4" />
+
+</ResourceDictionary>

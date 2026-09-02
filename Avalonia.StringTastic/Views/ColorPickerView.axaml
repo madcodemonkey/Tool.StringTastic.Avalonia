@@ -1,0 +1,70 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Avalonia.StringTastic.ViewModels"
+             x:Class="Avalonia.StringTastic.Views.ColorPickerView"
+             x:DataType="vm:ColorPickerViewModel">
+
+    <ScrollViewer>
+        <StackPanel Margin="10" Spacing="10">
+
+            <!-- Hex input row -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0"
+                           Text="Hex Color:"
+                           FontSize="12"
+                           VerticalAlignment="Center"
+                           Margin="0,0,8,0"
+                           Foreground="{DynamicResource WindowForegroundBrush}" />
+
+                <TextBox Grid.Column="1"
+                         x:Name="HexColorTextBox"
+                         Text="{Binding HexColorText, Mode=TwoWay}"
+                         Padding="5"
+                         Foreground="{DynamicResource TextBoxForegroundBrush}"
+                         Background="{DynamicResource TextBoxBackgroundBrush}" />
+
+                <Button Grid.Column="2"
+                        Content="Apply"
+                        MinWidth="60"
+                        Margin="5,0,0,0"
+                        ToolTip.Tip="Apply hex color to preview"
+                        Command="{Binding ApplyCommand}" />
+
+                <Button Grid.Column="3"
+                        Content="Clear"
+                        MinWidth="60"
+                        Margin="5,0,0,0"
+                        ToolTip.Tip="Clear color"
+                        Command="{Binding ClearCommand}" />
+
+                <Button Grid.Column="4"
+                        Content="Copy"
+                        MinWidth="60"
+                        Margin="5,0,0,0"
+                        ToolTip.Tip="Copy hex color to clipboard"
+                        Command="{Binding CopyCommand}" />
+            </Grid>
+
+            <!-- Clickable color preview — click to open picker dialog -->
+            <Button HorizontalAlignment="Stretch"
+                    MinHeight="80"
+                    Command="{Binding PickColorCommand}"
+                    Background="{Binding SelectedColorBrush}"
+                    Foreground="White"
+                    FontSize="14"
+                    FontWeight="Bold"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center">
+                Click to pick a color
+            </Button>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,107 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Avalonia.StringTastic.Views.CompareView"
+             xmlns:vm="using:Avalonia.StringTastic.ViewModels"
+             x:DataType="vm:CompareViewModel">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Top button bar: left buttons left-aligned, right buttons right-aligned -->
+        <DockPanel Grid.Row="0" LastChildFill="False">
+            <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Margin="5">
+                <Button MinHeight="25" Margin="5" MinWidth="60"
+                        Command="{Binding ClearLeftCommand}" ToolTip.Tip="Clear left text">
+                    Clear
+                </Button>
+                <Button MinHeight="25" Margin="5" MinWidth="60"
+                        Command="{Binding SortLeftCommand}" ToolTip.Tip="Sort left text">
+                    Sort
+                </Button>
+                <Button MinHeight="25" Margin="5" MinWidth="60"
+                        Command="{Binding UniqueLeftCommand}" ToolTip.Tip="Remove duplicates from left">
+                    Unique
+                </Button>
+                <Button MinHeight="25" Margin="5" MinWidth="60"
+                        Command="{Binding TrimLeftCommand}" ToolTip.Tip="Trim whitespace from left">
+                    Trim
+                </Button>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Margin="5">
+                <Button MinHeight="25" Margin="5" MinWidth="60"
+                        Command="{Binding ClearRightCommand}" ToolTip.Tip="Clear right text">
+                    Clear
+                </Button>
+                <Button MinHeight="25" Margin="5" MinWidth="60"
+                        Command="{Binding SortRightCommand}" ToolTip.Tip="Sort right text">
+                    Sort
+                </Button>
+                <Button MinHeight="25" Margin="5" MinWidth="60"
+                        Command="{Binding UniqueRightCommand}" ToolTip.Tip="Remove duplicates from right">
+                    Unique
+                </Button>
+                <Button MinHeight="25" Margin="5" MinWidth="60"
+                        Command="{Binding TrimRightCommand}" ToolTip.Tip="Trim whitespace from right">
+                    Trim
+                </Button>
+            </StackPanel>
+        </DockPanel>
+
+        <!-- Splitter area with text boxes -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MinWidth="80" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" MinWidth="80" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Left text area -->
+            <TextBox Grid.Column="0"
+                     x:Name="LeftTextBox"
+                     Text="{Binding LeftText, Mode=TwoWay}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Stretch"
+                     Margin="0,0,5,0"
+                     ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto" />
+
+            <!-- Splitter with center buttons overlaid -->
+            <GridSplitter Grid.Column="1" Width="90" VerticalAlignment="Stretch" ResizeBehavior="PreviousAndNext" Background="Transparent" />
+            <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button MinHeight="25" Margin="2,4" MinWidth="80"
+                        Command="{Binding UniqueLeftToRightCommand}" ToolTip.Tip="Unique items from left go to right">
+                    Unique L&#x2192;R
+                </Button>
+                <Button MinHeight="25" Margin="2,4" MinWidth="80"
+                        Command="{Binding UniqueRightToLeftCommand}" ToolTip.Tip="Unique items from right go to left">
+                    Unique R&#x2192;L
+                </Button>
+                <Button MinHeight="25" Margin="2,4" MinWidth="80"
+                        Command="{Binding ShowDifferencesCommand}" ToolTip.Tip="Show differences between left and right">
+                    Differences
+                </Button>
+                <Button MinHeight="25" Margin="2,4" MinWidth="80"
+                        Command="{Binding ShowSimilaritiesCommand}" ToolTip.Tip="Show similarities between left and right">
+                    Similarities
+                </Button>
+            </StackPanel>
+
+            <!-- Right text area -->
+            <TextBox Grid.Column="2"
+                     x:Name="RightTextBox"
+                     Text="{Binding RightText, Mode=TwoWay}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Stretch"
+                     Margin="5,0,0,0"
+                     ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto" />
+        </Grid>
+    </Grid>
+</UserControl>
