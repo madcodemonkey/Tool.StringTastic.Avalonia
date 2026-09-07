@@ -312,10 +312,7 @@
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="Padding" Value="4,2" />
         </Style>
-        <Style Selector="TextBox:pointerover /template/ Border#Border">
-            <Setter Property="BorderBrush" Value="{DynamicResource TextBoxFocusBorderBrush}" />
-        </Style>
-        <Style Selector="TextBox:focus /template/ Border#Border">
+        <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
             <Setter Property="BorderBrush" Value="{DynamicResource TextBoxFocusBorderBrush}" />
         </Style>
         <Style Selector="TextBox:disabled">

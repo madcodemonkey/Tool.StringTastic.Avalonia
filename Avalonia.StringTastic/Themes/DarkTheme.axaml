@@ -23,6 +23,15 @@
     <SolidColorBrush x:Key="TextBoxBorderBrush" Color="#FF555555" />
     <SolidColorBrush x:Key="TextBoxFocusBorderBrush" Color="#FF007ACC" />
 
+    <!-- Suppress FluentTheme TextBox hover color changes — keep normal-state colors -->
+    <SolidColorBrush x:Key="TextControlBorderBrushPointerOver" Color="#FF555555" />
+    <SolidColorBrush x:Key="TextControlBackgroundPointerOver" Color="#FF252526" />
+    <SolidColorBrush x:Key="TextControlForegroundPointerOver" Color="#FFFFFFFF" />
+    <!-- Override FluentTheme TextBox focus colors — subdued for dark theme -->
+    <SolidColorBrush x:Key="TextControlBackgroundFocused" Color="#FF333337" />
+    <SolidColorBrush x:Key="TextControlBorderBrushFocused" Color="#FF007ACC" />
+    <SolidColorBrush x:Key="TextControlForegroundFocused" Color="#FFFFFFFF" />
+
     <SolidColorBrush x:Key="ListBoxBackgroundBrush" Color="#FF252526" />
     <SolidColorBrush x:Key="ListBoxForegroundBrush" Color="#FFFFFFFF" />
     <SolidColorBrush x:Key="ListBoxBorderBrush" Color="#FF3F3F46" />
