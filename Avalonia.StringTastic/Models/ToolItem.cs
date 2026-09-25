@@ -7,6 +7,7 @@ public enum ToolType
     ColorPicker,
     GenerateGuid,
     JwtDecoder,
+    JsonFormatter,
     Sorter,
     UrlEncoder
 }

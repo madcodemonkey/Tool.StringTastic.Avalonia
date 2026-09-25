@@ -55,6 +55,7 @@ public partial class MainWindow : Window
         new() { DisplayName = "Color Picker", Type = ToolType.ColorPicker, IconKey = "IconEncodeDecode" },
         new() { DisplayName = "Generate GUIDs", Type = ToolType.GenerateGuid, IconKey = "IconGuid" },
         new() { DisplayName = "JWT Decode", Type = ToolType.JwtDecoder, IconKey = "IconEncodeDecode" },
+        new() { DisplayName = "JSON Formatter", Type = ToolType.JsonFormatter, IconKey = "IconEncodeDecode" },
         new() { DisplayName = "Sorter", Type = ToolType.Sorter, IconKey = "IconSort" },
         new() { DisplayName = "Url Encode/Decode", Type = ToolType.UrlEncoder, IconKey = "IconEncodeDecode" },
     ];
@@ -79,6 +80,7 @@ public partial class MainWindow : Window
             ToolType.ColorPicker => new ColorPickerView(),
             ToolType.GenerateGuid => new GenerateGuidView(),
             ToolType.JwtDecoder => new JwtDecoderView(),
+            ToolType.JsonFormatter => new JsonFormatterView(),
             ToolType.Sorter => new SorterView(),
             ToolType.UrlEncoder => new UrlEncoderView(),
             _ => CreatePlaceholder(toolType.ToString() ?? "Unknown")

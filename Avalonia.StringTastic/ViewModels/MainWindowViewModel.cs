@@ -53,6 +53,7 @@ public partial class MainWindowViewModel : ObservableObject
         new ToolItem { DisplayName = "Color Picker", Type = ToolType.ColorPicker, IconKey = "IconEncodeDecode" },
         new ToolItem { DisplayName = "Generate GUIDs", Type = ToolType.GenerateGuid, IconKey = "IconGuid" },
         new ToolItem { DisplayName = "JWT Decode", Type = ToolType.JwtDecoder, IconKey = "IconEncodeDecode" },
+        new ToolItem { DisplayName = "JSON Formatter", Type = ToolType.JsonFormatter, IconKey = "IconEncodeDecode" },
         new ToolItem { DisplayName = "Sorter", Type = ToolType.Sorter, IconKey = "IconSort" },
         new ToolItem { DisplayName = "Url Encode/Decode", Type = ToolType.UrlEncoder, IconKey = "IconEncodeDecode" },
     };
@@ -70,6 +71,7 @@ public partial class MainWindowViewModel : ObservableObject
     private int _colorPickerCount;
     private int _generateGuidCount;
     private int _jwtDecoderCount;
+    private int _jsonFormatterCount;
     private int _sorterCount;
     private int _urlEncoderCount;
 
@@ -158,6 +160,7 @@ public partial class MainWindowViewModel : ObservableObject
             ToolType.ColorPicker => $"Color Picker {++_colorPickerCount}",
             ToolType.GenerateGuid => $"Generate GUID {++_generateGuidCount}",
             ToolType.JwtDecoder => $"JWT Decoder {++_jwtDecoderCount}",
+            ToolType.JsonFormatter => $"JSON Formatter {++_jsonFormatterCount}",
             ToolType.Sorter => $"Sorter {++_sorterCount}",
             ToolType.UrlEncoder => $"URL Encoder {++_urlEncoderCount}",
             _ => tool.DisplayName
