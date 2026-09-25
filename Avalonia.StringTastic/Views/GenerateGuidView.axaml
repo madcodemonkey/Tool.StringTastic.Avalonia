@@ -12,13 +12,19 @@
 
         <!-- Top Toolbar -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
-            <Button MinHeight="25" Margin="5" MinWidth="60"
+            <Button Classes="ToolbarRaisedButton"
                     Command="{Binding ClearCommand}" ToolTip.Tip="Clear all text">
-                Clear
+                <StackPanel Orientation="Horizontal">
+                    <PathIcon Data="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" Width="14" Height="14" Margin="0,0,5,0" />
+                    <TextBlock Text="Clear" />
+                </StackPanel>
             </Button>
-            <Button MinHeight="25" Margin="5" MinWidth="110"
+            <Button Classes="ToolbarRaisedButton"
                     Command="{Binding GenerateCommand}" ToolTip.Tip="Generate new GUIDs">
-                Generate GUIDs
+                <StackPanel Orientation="Horizontal">
+                    <PathIcon Data="M8,5.14V19.14L19,12.14L8,5.14Z" Width="14" Height="14" Margin="0,0,5,0" />
+                    <TextBlock Text="Generate GUIDs" />
+                </StackPanel>
             </Button>
         </StackPanel>
 

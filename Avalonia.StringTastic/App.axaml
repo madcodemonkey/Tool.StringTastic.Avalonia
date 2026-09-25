@@ -346,8 +346,10 @@
             <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}" />
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="Padding" Value="6,2" />
+            <Setter Property="Padding" Value="8,5" />
             <Setter Property="Margin" Value="2" />
+            <Setter Property="MinHeight" Value="32" />
+            <Setter Property="MinWidth" Value="85" />
             <Setter Property="CornerRadius" Value="4" />
         </Style>
         <Style Selector="Button.ToolbarRaisedButton:pointerover /template/ Border#bd">

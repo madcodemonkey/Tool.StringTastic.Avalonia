@@ -4,14 +4,6 @@
              x:Class="Avalonia.StringTastic.Views.JsonFormatterView"
              x:DataType="vm:JsonFormatterViewModel">
 
-    <UserControl.Styles>
-        <Style Selector="Button.ToolbarRaisedButton">
-            <Setter Property="Padding" Value="8,4" />
-            <Setter Property="Margin" Value="3" />
-            <Setter Property="CornerRadius" Value="4" />
-        </Style>
-    </UserControl.Styles>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

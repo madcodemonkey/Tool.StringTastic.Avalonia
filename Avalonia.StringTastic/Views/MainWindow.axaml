@@ -9,7 +9,7 @@
         x:Class="Avalonia.StringTastic.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Title="StringTastic"
-        Width="900" Height="650"
+        Width="1100" Height="650"
         WindowStartupLocation="CenterScreen"
         Background="{DynamicResource WindowBackgroundBrush}"
         Foreground="{DynamicResource WindowForegroundBrush}">

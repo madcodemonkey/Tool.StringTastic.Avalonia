@@ -14,13 +14,19 @@
 
         <!-- Top Toolbar -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
-            <Button MinHeight="25" Margin="5" MinWidth="80"
+            <Button Classes="ToolbarRaisedButton"
                     Command="{Binding ClearInputCommand}" ToolTip.Tip="Clear input text">
-                Clear Input
+                <StackPanel Orientation="Horizontal">
+                    <PathIcon Data="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" Width="14" Height="14" Margin="0,0,5,0" />
+                    <TextBlock Text="Clear Input" />
+                </StackPanel>
             </Button>
-            <Button MinHeight="25" Margin="5" MinWidth="80"
+            <Button Classes="ToolbarRaisedButton"
                     Command="{Binding TrimInputCommand}" ToolTip.Tip="Trim whitespace from each line">
-                Trim
+                <StackPanel Orientation="Horizontal">
+                    <PathIcon Data="M7,14H9V16H7V14M12,14H14V16H12V14M15,14H17V16H15V14M7,11H9V13H7V11M12,11H14V13H12V11M15,11H17V13H15V11M7,8H9V10H7V8M12,8H14V10H12V8M15,8H17V10H15V8Z" Width="14" Height="14" Margin="0,0,5,0" />
+                    <TextBlock Text="Trim" />
+                </StackPanel>
             </Button>
         </StackPanel>
 
@@ -39,17 +45,26 @@
 
         <!-- Middle Toolbar with Encode/Decode Buttons -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-            <Button MinHeight="25" Margin="5" MinWidth="80"
+            <Button Classes="ToolbarRaisedButton"
                     Command="{Binding EncodeCommand}" ToolTip.Tip="URL Encode the text">
-                Encode
+                <StackPanel Orientation="Horizontal">
+                    <PathIcon Data="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" Width="14" Height="14" Margin="0,0,5,0" />
+                    <TextBlock Text="Encode" />
+                </StackPanel>
             </Button>
-            <Button MinHeight="25" Margin="5" MinWidth="80"
+            <Button Classes="ToolbarRaisedButton"
                     Command="{Binding DecodeCommand}" ToolTip.Tip="URL Decode the text">
-                Decode
+                <StackPanel Orientation="Horizontal">
+                    <PathIcon Data="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" Width="14" Height="14" Margin="0,0,5,0" />
+                    <TextBlock Text="Decode" />
+                </StackPanel>
             </Button>
-            <Button MinHeight="25" Margin="5" MinWidth="80"
+            <Button Classes="ToolbarRaisedButton"
                     Command="{Binding ClearOutputCommand}" ToolTip.Tip="Clear output text">
-                Clear Output
+                <StackPanel Orientation="Horizontal">
+                    <PathIcon Data="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" Width="14" Height="14" Margin="0,0,5,0" />
+                    <TextBlock Text="Clear Output" />
+                </StackPanel>
             </Button>
         </StackPanel>
 
