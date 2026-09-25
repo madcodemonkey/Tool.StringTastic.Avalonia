@@ -108,6 +108,19 @@
                 <TabControl.ItemTemplate>
                     <DataTemplate x:DataType="vm:TabData">
                         <StackPanel Orientation="Horizontal">
+                            <StackPanel.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Close"
+                                              Command="{Binding #MainTabControl.((vm:MainWindowViewModel)DataContext).CloseCommand}"
+                                              CommandParameter="{Binding}" />
+                                    <MenuItem Header="Close Others"
+                                              Command="{Binding #MainTabControl.((vm:MainWindowViewModel)DataContext).CloseOthersCommand}"
+                                              CommandParameter="{Binding}" />
+                                    <MenuItem Header="Close to the Right"
+                                              Command="{Binding #MainTabControl.((vm:MainWindowViewModel)DataContext).CloseToRightCommand}"
+                                              CommandParameter="{Binding}" />
+                                </ContextMenu>
+                            </StackPanel.ContextMenu>
                             <TextBlock Text="{Binding Header}"
                                        VerticalAlignment="Center"
                                        FontSize="14"

@@ -2,6 +2,8 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input.Platform;
+using Avalonia.Layout;
+using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Newtonsoft.Json;
@@ -18,7 +20,7 @@ namespace Avalonia.StringTastic.ViewModels
         private string _inputText = string.Empty;
 
         [RelayCommand]
-        private void Format()
+        private async Task Format()
         {
             try
             {
@@ -27,12 +29,12 @@ namespace Avalonia.StringTastic.ViewModels
             }
             catch (Exception ex)
             {
-                InputText = $"// Invalid JSON: {ex.Message}";
+                await ShowErrorDialog("JSON Format Error", ex.Message);
             }
         }
 
         [RelayCommand]
-        private void SortProperties()
+        private async Task SortProperties()
         {
             try
             {
@@ -52,7 +54,7 @@ namespace Avalonia.StringTastic.ViewModels
             }
             catch (Exception ex)
             {
-                InputText = $"// Invalid JSON: {ex.Message}";
+                await ShowErrorDialog("JSON Sort Error", ex.Message);
             }
         }
 
@@ -83,6 +85,58 @@ namespace Avalonia.StringTastic.ViewModels
             }
 
             return null;
+        }
+
+        private static async Task ShowErrorDialog(string title, string message)
+        {
+            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop
+                && desktop.MainWindow is not null)
+            {
+                var okButton = new Button
+                {
+                    Content = "OK",
+                    HorizontalAlignment = HorizontalAlignment.Right,
+                    HorizontalContentAlignment = HorizontalAlignment.Center,
+                    Padding = new Thickness(24, 6),
+                };
+
+                var dialog = new Window
+                {
+                    Title = title,
+                    Width = 450,
+                    Height = 220,
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                    CanResize = false,
+                    ShowInTaskbar = false,
+                    Content = new StackPanel
+                    {
+                        Margin = new Thickness(20),
+                        Spacing = 16,
+                        Children =
+                        {
+                            new TextBlock
+                            {
+                                Text = "Could not parse the JSON input.",
+                                FontWeight = FontWeight.Bold,
+                                FontSize = 15,
+                            },
+                            new TextBlock
+                            {
+                                Text = message,
+                                TextWrapping = TextWrapping.Wrap,
+                                FontFamily = FontFamily.Parse("monospace"),
+                                FontSize = 13,
+                                MaxHeight = 100,
+                            },
+                            okButton,
+                        },
+                    },
+                };
+
+                okButton.Click += (_, _) => dialog.Close();
+
+                await dialog.ShowDialog(desktop.MainWindow);
+            }
         }
 
         private static JObject SortJObject(JObject original)

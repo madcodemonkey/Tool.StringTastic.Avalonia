@@ -145,6 +145,37 @@ public partial class MainWindowViewModel : ObservableObject
         SelectedTab = keepTab;
     }
 
+    public void CloseTabsToRight(TabData anchorTab)
+    {
+        var index = Tabs.IndexOf(anchorTab);
+
+        // Remove all tabs after the anchor
+        for (int i = Tabs.Count - 1; i > index; i--)
+        {
+            Tabs.RemoveAt(i);
+        }
+
+        SelectedTab = anchorTab;
+    }
+
+    [RelayCommand]
+    public void Close(TabData? tab)
+    {
+        if (tab is not null) CloseTab(tab);
+    }
+
+    [RelayCommand]
+    public void CloseOthers(TabData? keepTab)
+    {
+        if (keepTab is not null) CloseOtherTabs(keepTab);
+    }
+
+    [RelayCommand]
+    public void CloseToRight(TabData? anchorTab)
+    {
+        if (anchorTab is not null) CloseTabsToRight(anchorTab);
+    }
+
     public void CloseAllTabs()
     {
         Tabs.Clear();
