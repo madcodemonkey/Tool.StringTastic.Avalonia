@@ -67,7 +67,7 @@
                      HorizontalAlignment="Stretch"
                      VerticalAlignment="Stretch"
                      Margin="0,0,5,0"
-                     ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                      ScrollViewer.VerticalScrollBarVisibility="Auto"
                      CaretBrush="{DynamicResource TextBoxCaretBrush}" />
 
@@ -101,7 +101,7 @@
                      HorizontalAlignment="Stretch"
                      VerticalAlignment="Stretch"
                      Margin="5,0,0,0"
-                     ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                      ScrollViewer.VerticalScrollBarVisibility="Auto"
                      CaretBrush="{DynamicResource TextBoxCaretBrush}" />
         </Grid>
