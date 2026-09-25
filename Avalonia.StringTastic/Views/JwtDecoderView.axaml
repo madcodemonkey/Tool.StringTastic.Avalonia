@@ -33,8 +33,9 @@
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Stretch"
                  Margin="5"
-                 ScrollViewer.HorizontalScrollBarVisibility="Visible"
-                 ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 CaretBrush="{DynamicResource TextBoxCaretBrush}" />
 
         <!-- Middle Toolbar with Decode Button -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
@@ -59,6 +60,7 @@
                  VerticalAlignment="Stretch"
                  Margin="5"
                  ScrollViewer.HorizontalScrollBarVisibility="Visible"
-                 ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 CaretBrush="{DynamicResource TextBoxCaretBrush}" />
     </Grid>
 </UserControl>

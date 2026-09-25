@@ -32,6 +32,7 @@
                  VerticalAlignment="Stretch"
                  Margin="5"
                  ScrollViewer.HorizontalScrollBarVisibility="Visible"
-                 ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 CaretBrush="{DynamicResource TextBoxCaretBrush}" />
     </Grid>
 </UserControl>

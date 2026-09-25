@@ -29,7 +29,8 @@
                          Text="{Binding HexColorText, Mode=TwoWay}"
                          Padding="5"
                          Foreground="{DynamicResource TextBoxForegroundBrush}"
-                         Background="{DynamicResource TextBoxBackgroundBrush}" />
+                         Background="{DynamicResource TextBoxBackgroundBrush}"
+                         CaretBrush="{DynamicResource TextBoxCaretBrush}" />
 
                 <Button Grid.Column="2"
                         Content="Apply"

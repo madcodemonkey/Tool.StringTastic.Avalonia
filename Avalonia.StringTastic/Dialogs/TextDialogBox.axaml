@@ -25,7 +25,8 @@
                  VerticalAlignment="Stretch"
                  Margin="5"
                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                 ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 CaretBrush="{DynamicResource TextBoxCaretBrush}" />
 
         <StackPanel Grid.Row="2"
                     Orientation="Horizontal"
